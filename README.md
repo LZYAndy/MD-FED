@@ -64,6 +64,7 @@ video2/
 Similar format applies to the frames containing objects of interest.
 
 **Flow directory**
+
 We assume pre-extracted optical flows, that have been resized to 224 pixels high or similar. The organization of the frames is expected to be <flow_dir>/<video_id>/<flow_number>.jpg. For example,
 ```
 video1/
@@ -76,7 +77,10 @@ video2/
 ├─ ...
 ```
 
+The optical flow for all four datasets will be uploaded soon.
+
 **Pose directory**
+
 We assume pre-extracted 2D poses. The organization of the frames is expected to be <path_dir>/<video_id>.pkl. An example pickle file is of the format:
 ```
 {
@@ -146,3 +150,5 @@ We assume pre-extracted 2D poses. The organization of the frames is expected to 
     
 }
 ```
+
+The 2D human poses for all four datasets will be uploaded soon.
