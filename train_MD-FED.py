@@ -635,8 +635,10 @@ def get_datasets(args):
     }
 
     print('Dataset size:', dataset_len)
-    num_train_samples = int(args.num_samples * 0.8)
-    num_val_samples = args.num_samples - num_train_samples
+    num_train_samples, num_val_samples = -1, -1
+    if args.num_samples >= 0:
+        num_train_samples = int(args.num_samples * 0.8)
+        num_val_samples = args.num_samples - num_train_samples
     train_data = ActionSeqDataset(
         classes, os.path.join('data', args.dataset, 'train.json'),
         args.frame_dir, args.clip_len, dataset_len, is_eval=False, dilate_len=args.dilate_len, stage=args.stage,
