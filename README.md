@@ -1,6 +1,6 @@
 # MD-FED
 
-Recognizing fine-grained sports events with precise temporal localization is essential for sports analytics but remains challenging due to factors such as rapid succession, motion blur, and subtle visual differences, often requiring large amounts of labeled data. Existing end-to-end visual and skeleton-based models struggle in few-shot scenarios due to their reliance on pixel- or pose-based inputs alone. We propose Multimodal Distillation for Few-Shot Fine-Grained Event Detection (MD-FED), a weakly supervised approach that leverages skeleton-based features as a teacher to guide student networks in learning visual representations from RGB and optical flow. MD-FED employs a three-stage training strategy: skeleton-based pretraining, multimodal distillation, and few-shot fine-tuning. Evaluations on four sports datasets—F3Set, ShuttleSet, FineGym, and Figure Skating—demonstrate that MD-FED significantly outperforms single-modality models in few-shot settings, providing a scalable and effective solution for fine-grained sports action detection.
+Recognizing fine-grained sports events with precise temporal localization is essential for sports analytics but remains challenging due to factors such as rapid succession, motion blur, and subtle visual differences, often requiring large amounts of labeled data. Existing end-to-end visual and skeleton-based models struggle in few-shot conditions due to their reliance on pixel- or pose-based inputs alone. We propose Multimodal Distillation for Few-Shot Fine-Grained Event Detection (MD-FED), a weakly supervised approach that leverages skeleton-based features as a teacher to guide student networks in learning visual representations from RGB and optical flow. MD-FED employs a three-stage training strategy: skeleton-based pretraining, multimodal distillation, and few-shot fine-tuning. Evaluations on four sports datasets—F$^3$Set, ShuttleSet, FineGym, and Figure Skating—show that MD-FED significantly outperforms baseline models in few-shot settings, providing a scalable and effective solution for fine-grained sports event detection. Our code is publicly available. 
 
 ## Environment
 The code is tested in Linux (Ubuntu 22.04) with the dependency versions in requirements.txt.
@@ -29,6 +29,7 @@ Each dataset has plaintext files that contain the list of event types `events.tx
 This is a list of the event names, one per line: `{split}.json`
 
 This file contains entries for each video and its contained events.
+
 ```
 [
     {
@@ -48,9 +49,11 @@ This file contains entries for each video and its contained events.
     ...
 ]
 ```
+
 **Frame directory**
 
 We assume pre-extracted frames, that have been resized to 224 pixels high or similar. The organization of the frames is expected to be <frame_dir>/<video_id>/<frame_number>.jpg. For example,
+
 ```
 video1/
 ├─ 000000.jpg
@@ -61,11 +64,13 @@ video2/
 ├─ 000000.jpg
 ├─ ...
 ```
+
 Similar format applies to the frames containing objects of interest.
 
 **Flow directory**
 
 We assume pre-extracted optical flows, that have been resized to 224 pixels high or similar. The organization of the frames is expected to be <flow_dir>/<video_id>/<flow_number>.jpg. For example,
+
 ```
 video1/
 ├─ 000000.jpg
@@ -82,6 +87,7 @@ The optical flow for all four datasets will be uploaded soon.
 **Pose directory**
 
 We assume pre-extracted 2D poses. The organization of the frames is expected to be <path_dir>/<video_id>.pkl. An example pickle file is of the format:
+
 ```
 {
     "frame_dir": "20210909-W-US_Open-SF-Aryna_Sabalenka-Leylah_Fernandez_170943_171285",
