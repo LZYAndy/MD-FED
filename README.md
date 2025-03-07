@@ -113,7 +113,6 @@ We assume pre-extracted 2D poses. The organization of the frames is expected to 
           ...
         ],
     ],
-
     "keypoint_score": [
         // far-end player
         [
