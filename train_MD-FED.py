@@ -193,9 +193,9 @@ class MD_FED(BaseRGBModel):
 
             # Freeze the feature extractor
             if stage > 1:
-                for param in self._flow_feat.parameters():
+                for param in self._sk_feat.parameters():
                     param.requires_grad = False
-                for param in self._flow_head.parameters():
+                for param in self._sk_head.parameters():
                     param.requires_grad = False
 
             # binary predictor, event localizer
